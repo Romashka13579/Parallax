@@ -41,7 +41,7 @@
     position: absolute;
     width:  73px;
     aspect-ratio: 1/1;
-    background: url(/images/paralax/daisy.png) center/cover;
+    background: url(images/paralax/daisy.png) center/cover;
     margin-left: -1px;
 }
 
