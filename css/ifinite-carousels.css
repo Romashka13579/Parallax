@@ -1,0 +1,220 @@
+:root{
+    --background: rgb(208, 215, 218);
+    --background-2: rgb(223, 230, 234);
+    --text: rgb(1, 14, 37);
+
+}
+
+.header{
+    color: var(--text);
+}
+
+.ifinite-background{
+    position: relative;
+    width: 100%;
+    max-height: 100vh;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--background-2);
+}
+
+.ifinite-background-sliders{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0px 10%;
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+    transform: perspective(30vw) rotateZ(-4deg) rotateY(15deg) translateX(7%);
+}
+
+.ifinite-background-over{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ifinite-background-slider{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slidingup 15s linear infinite;
+    padding-top: 20px
+}
+
+.ifinite-background-over:nth-child(2n-1) .ifinite-background-slider{
+    flex-direction: column-reverse;
+}
+
+.ifinite-background-slider img{
+    width: 100%;
+    aspect-ratio: 1.4/1;
+}
+
+.ifinite-background-slider img:nth-child(2n){
+    aspect-ratio: 1/1.4;
+}
+
+@keyframes slidingup {
+    0%{
+        transform: translateY(-10%);
+    }
+    100%{
+        transform: translateY(-110%);
+    }
+}
+
+
+
+.infinite-slider{
+    position: relative;
+    width: 100%;
+    max-height: 100vh;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.infinite-slider-over{
+    width: 100%;
+    height: 30%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    background: var(--background-2);
+    padding: 25px;
+}
+
+.infinite-slider-over:before{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--background-2) 0.01%, rgba(255,255,255,0) 10%, rgba(255,255,255,0) 90%, var(--background-2) 99.9%);
+    z-index: 2;
+}
+
+.infinite-slider-block{
+    display: flex;
+    gap: 25px;
+    padding-left: 25px;
+    animation: slidingleft 10s linear infinite;
+}
+
+.infinite-slider-block img{
+    height: 100%;
+}
+
+@keyframes slidingleft {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+
+
+.carousel{
+    position: relative;
+    width: 100%;
+    max-height: 100vh;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--background-2);
+}
+
+.carousel-wrap{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5vw;
+    transform: translateY(-30px);
+}
+
+.carousel-over{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32vw;
+    aspect-ratio: 1.4/1;
+    transform: perspective(600px) translateZ(2150px) rotateZ(-7deg);
+    transform-style: preserve-3d;
+}
+
+.carousel-item{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(0deg) translateZ(-2150px);
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 2px rgba(147, 148, 149, 0.55);
+}
+
+.carousel-item:nth-child(6n){background: url(/images/web/3d-house-modeling.jpg) center/cover;}
+.carousel-item:nth-child(6n-1){background: url(/images/web/game-design.jpeg) center/cover;}
+.carousel-item:nth-child(6n-2){background: url(/images/web/game\ background.jpg) center/cover;}
+.carousel-item:nth-child(6n-3){background: url(/images/web/game\ creating.jpg) center/cover;}
+.carousel-item:nth-child(6n-4){background: url(/images/web/image.png) center/cover;}
+.carousel-item:nth-child(6n-5){background: url(/images/web/web\ design.webp) center/cover;}
+
+/* .carousel-text{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-block{
+    position: absolute;
+    width: 20vw;
+    height: 10vw;
+    background: black;
+    transform: rotateY(0deg) translateZ(-2150px);
+    transition: transform 600ms cubic-bezier(.15,.52,.18,.95);
+} */
+
+.carousel-hoverball{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    background: rgb(108, 143, 234);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--text);
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0px 0px 15px 3px rgba(34, 59, 123, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 200ms cubic-bezier(0,.8,.2,1), opacity 200ms;
+}
+
+.carousel-wrap:has(:hover) .carousel-hoverball{
+    opacity: 1;
+}
